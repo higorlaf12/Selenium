@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import static org.junit.Assert.assertEquals;
+
 public class LoginTest {
 
     static WebDriver webDriver;
@@ -35,6 +37,10 @@ public class LoginTest {
         Verify.verifyElement(By.xpath("//input[@id ='loginEmail']"),USER_EMAIL);
         Verify.verifyElement(By.xpath("//input[@id ='loginPassword']"),USER_LOGIN_ERROR);
         Verify.verifyElement(By.xpath("//button[@name ='action']"),null);
+
+
+        assertEquals("  Algo deu errado",
+                webDriver.findElement(By.xpath("//*[@id='toast-container']/div/div/span")).getText());
 
 //        Verify.verifyExisting();
 //        Alert alert = webDriver.switchTo().alert();

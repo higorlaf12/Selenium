@@ -80,6 +80,12 @@ public class Administration {
 
         Verify.verifyLoop(nameElement);
 
+        Thread.sleep(1000);
+    }
+    public void admTable()throws Exception{
+        webDriver.get("http://localhost:8080/#/hreports/administration");
+        Verify.verifyElement(By.xpath("//a[@href='#/hreports/administration/table']"),null);
+
 
     }
 }
