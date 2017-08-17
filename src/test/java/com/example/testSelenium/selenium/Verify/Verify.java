@@ -30,7 +30,7 @@ public class Verify {
     }
 
     public static void verifyExisting(By element) {
-        WebDriverWait wait = new WebDriverWait(webDriver, 20);
+        WebDriverWait wait = new WebDriverWait(webDriver, 100);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 

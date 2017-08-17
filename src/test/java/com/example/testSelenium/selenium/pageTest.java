@@ -73,11 +73,15 @@ public class pageTest {
     }
     @Test
     public void testScreenP() throws Exception{
-        administration.admCharges();
-         Thread.sleep(1000);
-        administration.admCompetence();
+        loginTest.fillField();
         Thread.sleep(1000);
-        administration.admDepartment();
+//        administration.admCharges();
+//         Thread.sleep(1000);
+//        administration.admCompetence();
+//        Thread.sleep(1000);
+//        administration.admDepartment();
+//        Thread.sleep(4000);
+        administration.admTable();
     }
 
     @Test

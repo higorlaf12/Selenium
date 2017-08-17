@@ -38,7 +38,7 @@ public class LoginTest {
         Verify.verifyElement(By.xpath("//input[@id ='loginPassword']"),USER_LOGIN_ERROR);
         Verify.verifyElement(By.xpath("//button[@name ='action']"),null);
 
-
+        Thread.sleep(1000);
         assertEquals("  Algo deu errado",
                 webDriver.findElement(By.xpath("//*[@id='toast-container']/div/div/span")).getText());
 
