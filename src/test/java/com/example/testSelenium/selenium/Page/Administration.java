@@ -20,14 +20,14 @@ public class Administration {
     public void admCharges() throws Exception {
 
         webDriver.get("http://localhost:8080/#/hreports/administration");
-        Verify.verifyElement(By.xpath("//div/div/div/div[2]/div[1]/a"), null);
+        Verify.verifyElementClick(By.xpath("//div/div/div/div[2]/div[1]/a"));
 
         Verify.verifyExisting(By.id("text-input"));
-        Verify.verifyElement(By.id("text-input"), null);
+        Verify.verifyElementClick(By.id("text-input"));
         Verify.verifyElement(By.id("text-input"), CHARGES_NAME);
 
         Verify.verifyExisting(By.xpath("//div/form/div/div[2]/button"));
-        Verify.verifyElement(By.xpath("//div/form/div/div[2]/button"), null);
+        Verify.verifyElementClick(By.xpath("//div/form/div/div[2]/button"));
 
         List<String> nameElement = new ArrayList<>();
         nameElement.add("FrontEnd");
@@ -42,14 +42,14 @@ public class Administration {
     }
     public void admCompetence()throws Exception{
         webDriver.get("http://localhost:8080/#/hreports/administration");
-        Verify.verifyElement(By.xpath("//a[@href = '#/hreports/administration/competence']"),null);
+        Verify.verifyElementClick(By.xpath("//a[@href = '#/hreports/administration/competence']"));
 
         Verify.verifyExisting(By.id("text-input"));
-        Verify.verifyElement(By.id("text-input"),null);
+        Verify.verifyElementClick(By.id("text-input"));
         Verify.verifyElement(By.id("text-input"),COMPETENCE_NAME);
 
         Verify.verifyExisting(By.xpath("//div/form/div[2]/button"));
-        Verify.verifyElement(By.xpath("//div/form/div[2]/button"),null);
+        Verify.verifyElementClick(By.xpath("//div/form/div[2]/button"));
 
         List<String> nameElement = new ArrayList<>();
         nameElement.add("Comunicação");
@@ -63,13 +63,13 @@ public class Administration {
     public void admDepartment()throws Exception{
 
         webDriver.get("http://localhost:8080/#/hreports/administration");
-        Verify.verifyElement(By.xpath("//a[@href='#/hreports/administration/department']"),null);
+        Verify.verifyElementClick(By.xpath("//a[@href='#/hreports/administration/department']"));
 
         Verify.verifyExisting(By.id("text-input"));
         Verify.verifyElement(By.id("text-input"),DEPARTMENT_NAME);
 
         Verify.verifyExisting(By.xpath("//div/form/div[2]/button"));
-        Verify.verifyElement(By.xpath("//div/form/div[2]/button"),null);
+        Verify.verifyElementClick(By.xpath("//div/form/div[2]/button"));
 
         List<String> nameElement = new ArrayList<>();
         nameElement.add("Desenvolvimento FE");
@@ -83,10 +83,10 @@ public class Administration {
 
     public void admTable()throws Exception {
         webDriver.get("http://localhost:8080/#/hreports/administration");
-        Verify.verifyElement(By.xpath("//a[@href='#/hreports/administration/table']"), null);
+        Verify.verifyElementClick(By.xpath("//a[@href='#/hreports/administration/table']"));
 
         Verify.verifyExisting(By.cssSelector(" div > div:nth-child(8) > div > div:nth-child(1) > select"));
-        Verify.verifyElement(By.cssSelector(" div > div:nth-child(8) > div > div:nth-child(1) > select"), null);
+        Verify.verifyElementClick(By.cssSelector(" div > div:nth-child(8) > div > div:nth-child(1) > select"));
 
         Select select = new Select(webDriver.findElement(By.cssSelector(" div > div:nth-child(8) > div > div:nth-child(1) > select")));
         Select select1 = new Select(webDriver.findElement(By.cssSelector(" div > div:nth-child(3) > select")));
@@ -106,14 +106,14 @@ public class Administration {
 
         for (int x = 1; x < receivesElement.size();x++){
             select.selectByVisibleText(nameElement.get(x-1));
-            Verify.verifyElement(By.xpath("//div[5]/div/div[1]/select/option["+Integer.toString(x)+"]"),null);
+            Verify.verifyElementClick(By.xpath("//div[5]/div/div[1]/select/option["+Integer.toString(x)+"]"));
 
             Verify.verifyExisting(By.cssSelector(" div > div:nth-child(3) > select"));
-            Verify.verifyElement(By.cssSelector(" div > div:nth-child(3) > select"), null);
+            Verify.verifyElementClick(By.cssSelector(" div > div:nth-child(3) > select"));
 
             for (int y =1; y< webElementList.size();y++){
                 select1.selectByVisibleText(nameElement1.get(y-1));
-                Verify.verifyElement(By.xpath("//div[5]/div/div[3]/select/option["+Integer.toString(y)+"]"),null);
+                Verify.verifyElementClick(By.xpath("//div[5]/div/div[3]/select/option["+Integer.toString(y)+"]"));
         }
     }
 

@@ -36,7 +36,7 @@ public class LoginTest {
         webDriver.get("http://localhost:8080/#/hreports/login");
         Verify.verifyElement(By.xpath("//input[@id ='loginEmail']"),USER_EMAIL);
         Verify.verifyElement(By.xpath("//input[@id ='loginPassword']"),USER_LOGIN_ERROR);
-        Verify.verifyElement(By.xpath("//button[@name ='action']"),null);
+        Verify.verifyElementClick(By.xpath("//button[@name ='action']"));
 
         Thread.sleep(1000);
         assertEquals("  Algo deu errado",

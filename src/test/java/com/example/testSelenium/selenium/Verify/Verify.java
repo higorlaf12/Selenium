@@ -17,20 +17,19 @@ public class Verify {
     }
 
     public static void verifyElement(By element, String sendKeys) {
-        WebDriverWait wait = new WebDriverWait(webDriver, 300);
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        WebDriverWait wait = new WebDriverWait(webDriver, 180);
+        wait.until(ExpectedConditions.presenceOfElementLocated(element));
+        webDriver.findElement(element).sendKeys(sendKeys);
+    }
+    public static void verifyElementClick(By element){
+        WebDriverWait wait = new WebDriverWait(webDriver, 180);
         wait.until(ExpectedConditions.presenceOfElementLocated(element));
 
-        WebElement element1 = webDriver.findElement(element);
-        if (sendKeys == null) {
-            element1.click();
-        } else {
-            element1.sendKeys(sendKeys);
-        }
+        webDriver.findElement(element).click();
     }
 
     public static void verifyExisting(By element) {
-        WebDriverWait wait = new WebDriverWait(webDriver, 100);
+        WebDriverWait wait = new WebDriverWait(webDriver, 180);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 

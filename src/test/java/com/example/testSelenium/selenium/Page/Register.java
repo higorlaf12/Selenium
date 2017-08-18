@@ -21,7 +21,7 @@ public class Register {
     public void register() throws Exception {
         webDriver.get("http://localhost:8080/#/hreports/profileconfig");
 
-        Verify.verifyElement(By.cssSelector("#Perfil > li > a"), null);
+        Verify.verifyElementClick(By.cssSelector("#Perfil > li > a"));
         Thread.sleep(1000);
         Verify.verifyElement(By.id("complet-name"), USER_NAME);
         Thread.sleep(1000);
@@ -34,29 +34,29 @@ public class Register {
         webDriver.findElement(By.cssSelector("option[value='1']")).click();
         Thread.sleep(1000);
 
-        Verify.verifyElement(By.xpath("//div[1]/div[3]/div[2]/div[5]/select"), null);
+        Verify.verifyElementClick(By.xpath("//div[1]/div[3]/div[2]/div[5]/select"));
         new Select(webDriver.findElement(By.xpath("//div[1]/div[3]/div[2]/div[5]/select"))).selectByVisibleText("Desenvolvedor");
-        Verify.verifyElement(By.cssSelector("option[value='1']"), null);
+        Verify.verifyElementClick(By.cssSelector("option[value='1']"));
     }
 
     public void registerUser() throws Exception {
 
-        Verify.verifyElement(By.id("icon_prefix"), null);
+        Verify.verifyElementClick(By.id("icon_prefix"));
         Verify.verifyElement(By.id("icon_prefix"), NICK_ACCESS);
         Thread.sleep(1000);
 
-        Verify.verifyElement(By.id("Password"), null);
+        Verify.verifyElementClick(By.id("Password"));
         Verify.verifyElement(By.id("Password"), PASSWORD_AGE);
         Thread.sleep(1000);
 
-        Verify.verifyElement(By.id("New_Password"), null);
+        Verify.verifyElementClick(By.id("New_Password"));
         Verify.verifyElement(By.id("New_Password"), NEW_PASSWORD);
         Thread.sleep(1000);
 
-        Verify.verifyElement(By.id("Confirm_Password"), null);
+        Verify.verifyElementClick(By.id("Confirm_Password"));
         Verify.verifyElement(By.id("Confirm_Password"), NEW_PASSWORD);
         Thread.sleep(1000);
 
-        Verify.verifyElement(By.xpath("//div[2]/div[2]/button"), null);
+        Verify.verifyElementClick(By.xpath("//div[2]/div[2]/button"));
     }
 }
