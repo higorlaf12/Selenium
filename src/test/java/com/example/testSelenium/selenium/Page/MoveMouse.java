@@ -13,17 +13,17 @@ public class MoveMouse {
     public MoveMouse(WebDriver webDriver){
         this.webDriver = webDriver;
     }
-    public void moverMouseMenu() throws InterruptedException {
+    public void moveMouseMenu() throws InterruptedException {
         Actions builder = new Actions(webDriver);
-        WebElement botaoMenu = webDriver.findElement(By.xpath("//button[contains(@class,'md-fab md-primary md-button')]"));
-        Action mouseOverHome = builder.moveToElement(botaoMenu).build();
+        WebElement butonMenu = webDriver.findElement(By.xpath("//a[contains(@class='dropdown-button')]"));
+        Action mouseOverHome = builder.moveToElement(butonMenu).build();
         mouseOverHome.perform();
         Thread.sleep(1000);
         System.out.println("moveu mouse menu");
     }
     public void moverMouseNovo() {
         Actions builder = new Actions(webDriver);
-        WebElement botaoNovo = webDriver.findElement(By.xpath("//button[contains(@class,'md-fab md-raised md-mini md-button')]"));
-        Action mouseOverHomeBotaoNovo = builder.moveToElement(botaoNovo).click(botaoNovo).build();
+        WebElement butonNew = webDriver.findElement(By.xpath("//button[contains(@class,'md-fab md-raised md-mini md-button')]"));
+        Action mouseOverHomeBotaoNovo = builder.moveToElement(butonNew).click(butonNew).build();
         mouseOverHomeBotaoNovo.perform();	}
 }

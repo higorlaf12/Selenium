@@ -1,12 +1,10 @@
 package com.example.testSelenium.selenium;
 
-import com.example.testSelenium.selenium.Page.Administration;
-import com.example.testSelenium.selenium.Page.LoginTest;
-import com.example.testSelenium.selenium.Page.Register;
-import com.example.testSelenium.selenium.Page.Search;
+import com.example.testSelenium.selenium.Page.*;
 import com.example.testSelenium.selenium.Verify.Verify;
 import org.junit.*;
 import org.junit.Test;
+import org.apache.commons.lang3.time.StopWatch;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,6 +24,7 @@ public class pageTest {
     static Verify verify;
     static Search search;
     static Administration administration;
+    static MoveMouse moveMouse;
 
     static LoginTest loginTest;
 
@@ -39,11 +38,13 @@ public class pageTest {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("disable-infobars");
 
+
         webDriver = new ChromeDriver(chromeOptions);
         loginTest = new LoginTest(webDriver);
         register = new Register(webDriver);
         search = new Search(webDriver);
         verify = new Verify(webDriver);
+        moveMouse = new MoveMouse(webDriver);
         webDriver.get("http://localhost:8080/#/hreports/login");
         administration = new Administration(webDriver);
         webDriver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
@@ -73,6 +74,7 @@ public class pageTest {
     }
     @Test
     public void testScreenP() throws Exception{
+
         administration.admCharges();
          Thread.sleep(1000);
         administration.admCompetence();
@@ -90,6 +92,7 @@ public class pageTest {
     @AfterClass
     public static void tearDown() throws Exception {
         webDriver.close();
+
     }
 
 }

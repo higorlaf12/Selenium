@@ -111,7 +111,7 @@ public class Administration {
             Verify.verifyExisting(By.cssSelector(" div > div:nth-child(3) > select"));
             Verify.verifyElementClick(By.cssSelector(" div > div:nth-child(3) > select"));
 
-            for (int y =1; y< webElementList.size();y++){
+            for (int y =1; y < webElementList.size();y++){
                 select1.selectByVisibleText(nameElement1.get(y-1));
                 Verify.verifyElementClick(By.xpath("//div[5]/div/div[3]/select/option["+Integer.toString(y)+"]"));
         }

@@ -22,14 +22,22 @@ public class LoginTest {
 
     public void fillField () {
 
-        WebElement element = webDriver.findElement(By.xpath("//input[@id ='loginEmail']"));
-        element.sendKeys("higor.freitas@neppoadm.com.br");
+        String expectedTitle = "HReports";
 
-        WebElement element1 = webDriver.findElement(By.xpath("//input[@id ='loginPassword']"));
-        element1.sendKeys("1234567890");
+        String actualTitle = webDriver.getTitle();
 
-        WebElement button = webDriver.findElement(By.xpath("//button[@name ='action']"));
-        button.click();
+        if (expectedTitle.equals(actualTitle)) {
+
+            WebElement element = webDriver.findElement(By.xpath("//input[@id ='loginEmail']"));
+            element.sendKeys("higor.freitas@neppoadm.com.br");
+
+            WebElement element1 = webDriver.findElement(By.xpath("//input[@id ='loginPassword']"));
+            element1.sendKeys("1234567890");
+
+            WebElement button = webDriver.findElement(By.xpath("//button[@name ='action']"));
+            button.click();
+        }else
+            System.out.println("ERROR, Page not found");
     }
 
     public void loginErrorNotFoud() throws Exception{

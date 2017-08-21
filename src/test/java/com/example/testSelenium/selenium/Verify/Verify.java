@@ -43,6 +43,8 @@ public class Verify {
 
             for (WebElement element1 : webDriverElements) {
 
+                Thread.sleep(1000);
+
                 WebElement element = webDriver.findElement(By.xpath("//div[3]/div/table/tbody/tr[" + Integer.toString(x) + "]/td[4]/span"));
                 element.click();
 
@@ -50,8 +52,7 @@ public class Verify {
 
                 element1 = webDriver.findElement(By.xpath("//div/div[3]/div/table/tbody/tr[" + Integer.toString(x) + "]/td[2]/input"));
                 element1.click();
-                element1.sendKeys(Keys.CONTROL + "a");
-                element1.sendKeys(Keys.DELETE);
+                element1.clear();
                 element1.sendKeys(nameElement.get(x - 1));
 
                 Thread.sleep(1000);
