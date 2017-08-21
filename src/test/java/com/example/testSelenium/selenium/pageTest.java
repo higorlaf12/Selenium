@@ -25,6 +25,7 @@ public class pageTest {
     static Register register;
     static Verify verify;
     static Search search;
+    static NewSearch newSearch;
     static Administration administration;
     static MoveMouse moveMouse;
 
@@ -49,6 +50,7 @@ public class pageTest {
         loginTest = new LoginTest(webDriver);
         register = new Register(webDriver);
         search = new Search(webDriver);
+        newSearch = new NewSearch(webDriver);
         verify = new Verify(webDriver);
         moveMouse = new MoveMouse(webDriver);
         administration = new Administration(webDriver);
@@ -75,11 +77,22 @@ public class pageTest {
     }
 
     @Test
-    public void screenSearch() throws Exception{
+    public void search() throws Exception{
         search.search();
         Thread.sleep(1000);
         search.searchTable();
         Thread.sleep(1000);
+    }
+    @Test
+    public void searchNew() throws Exception{
+        newSearch.createCapa();
+        Thread.sleep(1000);
+        newSearch.createQuestion();
+        Thread.sleep(1000);
+        newSearch.createDateInitEnd();
+        Thread.sleep(1000);
+        newSearch.createTargetQuestion();
+
     }
     @Test
     public void screenP() throws Exception{

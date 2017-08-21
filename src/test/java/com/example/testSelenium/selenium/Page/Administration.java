@@ -15,8 +15,7 @@ public class Administration {
     private static String CHARGES_NAME = "FrontEnd";
     private static String COMPETENCE_NAME="Comunicação";
     private static String DEPARTMENT_NAME="Desenvolvimento BE";
-    private static String USER_NAME="Higor Freitas";
-    private static String USER_NEW_NAME="João Das Neves";
+    private static String USER_NEW="João Das Neves";
     private static String EMAIL_NEW ="Joaodasneves@hotmail.com";
     private static String CPF_NEW="12345678912";
     private static String PASSWORD_NEW="549868A9SD4S";
@@ -176,7 +175,7 @@ public class Administration {
     public void userRegister()throws Exception{
 
         Verify.verifyElementClick(By.id("m-l-search"));
-        Verify.verifyElement(By.id("m-l-search"),USER_NAME);
+        Verify.verifyElement(By.id("m-l-search"),USER_NEW);
 
         Verify.verifyExisting(By.xpath("//div[1]/div[3]/div[2]/a"));
         Verify.verifyElementClick(By.xpath("//div[1]/div[3]/div[2]/a"));
@@ -202,7 +201,7 @@ public class Administration {
         assertEquals("Cadastro de Usuários",webDriver.findElement(By.xpath("//div/form/div[1]/h5")).getText());
 
         Verify.verifyElementClick(By.id("icon_prefix"));
-        Verify.verifyElement(By.id("icon_prefix"),USER_NEW_NAME);
+        Verify.verifyElement(By.id("icon_prefix"),USER_NEW);
 
         Verify.verifyElementClick(By.id("email"));
         Verify.verifyElement(By.id("email"),EMAIL_NEW);
@@ -212,11 +211,11 @@ public class Administration {
 
         Verify.verifyExisting(By.cssSelector("div > div.row.valign-botton > div:nth-child(2) > select"));
         new Select(webDriver.findElement(By.cssSelector(" div > div.row.valign-botton > div:nth-child(2) > select")))
-                .selectByVisibleText("FrontEnd");
+                .selectByVisibleText(CHARGES_NAME);
         Verify.verifyElementClick(By.cssSelector("div:nth-child(2) > select > option:nth-child(2)"));
 
         Verify.verifyElementClick(By.xpath("//div[3]/div[1]/label"));
-        assertEquals("Desenvolvimento BE",webDriver.findElement(By.xpath("//div[3]/div[1]/label")).getText());
+        assertEquals(DEPARTMENT_NAME,webDriver.findElement(By.xpath("//div[3]/div[1]/label")).getText());
 
         Verify.verifyElementClick(By.id("text"));
         Verify.verifyElement(By.id("text"),PASSWORD_NEW);
