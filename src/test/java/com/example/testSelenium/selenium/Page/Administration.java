@@ -12,6 +12,7 @@ public class Administration {
     static String CHARGES_NAME = "FrontEnd";
     static String COMPETENCE_NAME="Comunicação";
     static String DEPARTMENT_NAME="Desenvolvimento BE";
+    static String USER_NAME="Higor Freitas";
 
     public Administration(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -82,8 +83,12 @@ public class Administration {
     }
 
     public void admTable()throws Exception {
+
         webDriver.get("http://localhost:8080/#/hreports/administration");
         Verify.verifyElementClick(By.xpath("//a[@href='#/hreports/administration/table']"));
+
+    }
+    public void admChargenXCompetence() throws Exception {
 
         Verify.verifyExisting(By.cssSelector(" div > div:nth-child(8) > div > div:nth-child(1) > select"));
         Verify.verifyElementClick(By.cssSelector(" div > div:nth-child(8) > div > div:nth-child(1) > select"));
@@ -114,9 +119,59 @@ public class Administration {
             for (int y =1; y < webElementList.size();y++){
                 select1.selectByVisibleText(nameElement1.get(y-1));
                 Verify.verifyElementClick(By.xpath("//div[5]/div/div[3]/select/option["+Integer.toString(y)+"]"));
+                WebElement elementAtextInput = webDriver.findElement(By.id("atext-input"));
+                elementAtextInput.sendKeys(y == 1?"222":y == 2 ?"333":"444");
+                Verify.verifyElementClick(By.xpath("//div[5]/div/div[6]/a"));
+                elementAtextInput.clear();
+            }
         }
+        Thread.sleep(1000);
     }
+    public void admTableChargeXCharge() throws Exception{
 
+        Verify.verifyExisting(By.cssSelector("  div > div:nth-child(12) > div > div:nth-child(1) > select"));
+        Verify.verifyElementClick(By.cssSelector("  div > div:nth-child(12) > div > div:nth-child(1) > select"));
+
+        Select select = new Select(webDriver.findElement(By.cssSelector("div > div:nth-child(12) > div > div:nth-child(1) > select")));
+        Select select1 = new Select(webDriver.findElement(By.cssSelector("div > div:nth-child(12) > div > div:nth-child(3) > select")));
+
+        List<WebElement> receivesElement = select.getOptions();
+        List<WebElement> webElementList  = select1.getOptions();
+
+        List<String> nameElement = new ArrayList<>();
+        nameElement.add("FrontEnd");
+        nameElement.add("BackEnd");
+        nameElement.add("Diretor");
+
+
+        for (int x = 1; x < receivesElement.size();x++){
+            select.selectByVisibleText(nameElement.get(x-1));
+            Verify.verifyElementClick(By.xpath("//div/div[1]/select/option["+Integer.toString(x)+"]"));
+
+            Verify.verifyExisting(By.cssSelector(" div > div:nth-child(12) > div > div:nth-child(3) > select"));
+            Verify.verifyElementClick(By.cssSelector(" div > div:nth-child(12) > div > div:nth-child(3) > select"));
+
+            for (int y =1; y < webElementList.size();y++){
+                select1.selectByVisibleText(nameElement.get(y-1));
+                Verify.verifyElementClick(By.xpath("//div[8]/div/div[3]/select/option["+Integer.toString(y)+"]"));
+                WebElement elementAtextInput = webDriver.findElement(By.id("text-input"));
+                elementAtextInput.sendKeys(y == 1?"222":y == 2 ?"333":"444");
+                Verify.verifyElementClick(By.xpath("//div[8]/div/div[6]/a"));
+                elementAtextInput.clear();
+            }
+        }
+        Thread.sleep(1000);
+    }
+    public void user()throws Exception{
+        webDriver.get("http://localhost:8080/#/hreports/administration");
+        Verify.verifyElementClick(By.xpath("//a[@href='#/hreports/administration/users']"));
+    }
+    public void userRegister()throws Exception{
+        Verify.verifyElementClick(By.id("m-l-search"));
+        Verify.verifyElement(By.id("m-l-search"),USER_NAME);
+
+    }
+    public void userRegisterNewUser() throws Exception{
 
     }
 }

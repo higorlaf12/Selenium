@@ -10,11 +10,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.util.concurrent.TimeUnit;
 
 import static com.example.testSelenium.selenium.Executaveis.Chrome.executChrome;
 import static com.example.testSelenium.selenium.Executaveis.FireFox.executFireFox;
+import static com.example.testSelenium.selenium.Executaveis.InternetExplorer.executExplorer;
 
 @FixMethodOrder
 public class pageTest {
@@ -30,24 +32,31 @@ public class pageTest {
 
     @BeforeClass
     public static void init() throws Exception{
-
         //executFireFox();
         //webDriver = new FirefoxDriver();
         //webDriver.manage().window().maximize();
+
         executChrome();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("disable-infobars");
 
 
         webDriver = new ChromeDriver(chromeOptions);
+
+//        executExplorer();
+//        webDriver = new InternetExplorerDriver();
+
         loginTest = new LoginTest(webDriver);
         register = new Register(webDriver);
         search = new Search(webDriver);
         verify = new Verify(webDriver);
         moveMouse = new MoveMouse(webDriver);
-        webDriver.get("http://localhost:8080/#/hreports/login");
         administration = new Administration(webDriver);
+
+        webDriver.get("http://localhost:8080/#/hreports/login");
+
         webDriver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+        webDriver.manage().window().maximize();
 
     }
 
@@ -74,7 +83,8 @@ public class pageTest {
     }
     @Test
     public void testScreenP() throws Exception{
-
+        loginTest.fillField();
+        Thread.sleep(1000);
         administration.admCharges();
          Thread.sleep(1000);
         administration.admCompetence();
@@ -82,6 +92,8 @@ public class pageTest {
         administration.admDepartment();
         Thread.sleep(4000);
         administration.admTable();
+        administration.admChargenXCompetence();
+        administration.admTableChargeXCharge();
     }
 
     @Test

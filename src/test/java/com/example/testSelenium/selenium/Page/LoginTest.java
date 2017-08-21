@@ -28,13 +28,13 @@ public class LoginTest {
 
         if (expectedTitle.equals(actualTitle)) {
 
-            WebElement element = webDriver.findElement(By.xpath("//input[@id ='loginEmail']"));
-            element.sendKeys("higor.freitas@neppoadm.com.br");
+            WebElement element = webDriver.findElement(By.id("loginEmail"));
+            element.sendKeys(USER_EMAIL);
 
-            WebElement element1 = webDriver.findElement(By.xpath("//input[@id ='loginPassword']"));
-            element1.sendKeys("1234567890");
+            WebElement element1 = webDriver.findElement(By.id("loginPassword"));
+            element1.sendKeys(USER_LOGIN);
 
-            WebElement button = webDriver.findElement(By.xpath("//button[@name ='action']"));
+            WebElement button = webDriver.findElement(By.name("action"));
             button.click();
         }else
             System.out.println("ERROR, Page not found");
@@ -42,9 +42,9 @@ public class LoginTest {
 
     public void loginErrorNotFoud() throws Exception{
         webDriver.get("http://localhost:8080/#/hreports/login");
-        Verify.verifyElement(By.xpath("//input[@id ='loginEmail']"),USER_EMAIL);
-        Verify.verifyElement(By.xpath("//input[@id ='loginPassword']"),USER_LOGIN_ERROR);
-        Verify.verifyElementClick(By.xpath("//button[@name ='action']"));
+        Verify.verifyElement(By.id("loginEmail"),USER_EMAIL);
+        Verify.verifyElement(By.id("loginPassword"),USER_LOGIN_ERROR);
+        Verify.verifyElementClick(By.name("action"));
 
         Thread.sleep(1000);
         assertEquals("  Algo deu errado",
