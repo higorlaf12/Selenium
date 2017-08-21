@@ -7,12 +7,19 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 public class Administration {
+
     static WebDriver webDriver;
-    static String CHARGES_NAME = "FrontEnd";
-    static String COMPETENCE_NAME="Comunicação";
-    static String DEPARTMENT_NAME="Desenvolvimento BE";
-    static String USER_NAME="Higor Freitas";
+    private static String CHARGES_NAME = "FrontEnd";
+    private static String COMPETENCE_NAME="Comunicação";
+    private static String DEPARTMENT_NAME="Desenvolvimento BE";
+    private static String USER_NAME="Higor Freitas";
+    private static String USER_NEW_NAME="João Das Neves";
+    private static String EMAIL_NEW ="Joaodasneves@hotmail.com";
+    private static String CPF_NEW="12345678912";
+    private static String PASSWORD_NEW="549868A9SD4S";
 
     public Administration(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -167,11 +174,60 @@ public class Administration {
         Verify.verifyElementClick(By.xpath("//a[@href='#/hreports/administration/users']"));
     }
     public void userRegister()throws Exception{
+
         Verify.verifyElementClick(By.id("m-l-search"));
         Verify.verifyElement(By.id("m-l-search"),USER_NAME);
 
+        Verify.verifyExisting(By.xpath("//div[1]/div[3]/div[2]/a"));
+        Verify.verifyElementClick(By.xpath("//div[1]/div[3]/div[2]/a"));
+
+        List<WebElement> allElement = webDriver.findElements(By.xpath("//div[3]/div/table/tbody/tr"));
+
+        for (int valueUser = 1; valueUser < allElement.size(); valueUser++) {
+
+            List<WebElement> webElementList = webDriver.findElements(By.xpath("//div[3]/div/table/tbody/tr["+Integer.toString(valueUser)+"]"));
+
+            Verify.verifyExisting(By.xpath("//div/table/tbody/tr["+Integer.toString(valueUser)+"]/td[6]/span"));
+            for (WebElement webelement: webElementList) {
+                webelement = webDriver.findElement(By.xpath("//div/table/tbody/tr["+Integer.toString(valueUser)+"]/td[6]/span"));
+                webelement.click();
+            }
+
+        }
     }
     public void userRegisterNewUser() throws Exception{
+
+        Verify.verifyExisting(By.xpath("//div[3]/div[3]/a"));
+        Verify.verifyElementClick(By.xpath("//div[3]/div[3]/a"));
+        assertEquals("Cadastro de Usuários",webDriver.findElement(By.xpath("//div/form/div[1]/h5")).getText());
+
+        Verify.verifyElementClick(By.id("icon_prefix"));
+        Verify.verifyElement(By.id("icon_prefix"),USER_NEW_NAME);
+
+        Verify.verifyElementClick(By.id("email"));
+        Verify.verifyElement(By.id("email"),EMAIL_NEW);
+
+        Verify.verifyElementClick(By.id("number"));
+        Verify.verifyElement(By.id("number"),CPF_NEW);
+
+        Verify.verifyExisting(By.cssSelector("div > div.row.valign-botton > div:nth-child(2) > select"));
+        new Select(webDriver.findElement(By.cssSelector(" div > div.row.valign-botton > div:nth-child(2) > select")))
+                .selectByVisibleText("FrontEnd");
+        Verify.verifyElementClick(By.cssSelector("div:nth-child(2) > select > option:nth-child(2)"));
+
+        Verify.verifyElementClick(By.xpath("//div[3]/div[1]/label"));
+        assertEquals("Desenvolvimento BE",webDriver.findElement(By.xpath("//div[3]/div[1]/label")).getText());
+
+        Verify.verifyElementClick(By.id("text"));
+        Verify.verifyElement(By.id("text"),PASSWORD_NEW);
+
+        Verify.verifyExisting(By.cssSelector("div > div.col.s12.m3.l3 > select"));
+        new Select(webDriver.findElement(By.cssSelector("div > div.col.s12.m3.l3 > select")))
+                .selectByVisibleText("Administrador");
+        Verify.verifyElementClick(By.xpath("//div/div[3]/select/option[2]"));
+
+        Verify.verifyExisting(By.xpath("//div[6]/div[2]/a"));
+        Verify.verifyElementClick(By.xpath("//div[6]/div[2]/a"));
 
     }
 }

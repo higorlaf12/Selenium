@@ -18,7 +18,7 @@ import static com.example.testSelenium.selenium.Executaveis.Chrome.executChrome;
 import static com.example.testSelenium.selenium.Executaveis.FireFox.executFireFox;
 import static com.example.testSelenium.selenium.Executaveis.InternetExplorer.executExplorer;
 
-@FixMethodOrder
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class pageTest {
 
     static WebDriver webDriver;
@@ -62,12 +62,12 @@ public class pageTest {
 
 
     @Test
-    public void testLogin() throws Exception {
+    public void login() throws Exception {
         loginTest.fillField();
         Thread.sleep(1000);
     }
     @Test
-    public void testRegister() throws Exception{
+    public void register() throws Exception{
         register.register();
         Thread.sleep(1000);
         register.registerUser();
@@ -75,29 +75,48 @@ public class pageTest {
     }
 
     @Test
-    public void testScreenSearch() throws Exception{
+    public void screenSearch() throws Exception{
         search.search();
         Thread.sleep(1000);
         search.searchTable();
         Thread.sleep(1000);
     }
     @Test
-    public void testScreenP() throws Exception{
-        loginTest.fillField();
-        Thread.sleep(1000);
-        administration.admCharges();
-         Thread.sleep(1000);
-        administration.admCompetence();
-        Thread.sleep(1000);
+    public void screenP() throws Exception{
+//        loginTest.fillField();
+//        Thread.sleep(1000);
         administration.admDepartment();
         Thread.sleep(4000);
+
+    }
+    @Test
+    public void screenPCharges() throws Exception {
+        administration.admCharges();
+        Thread.sleep(1000);
+    }
+    @Test
+    public void screenPCompetence() throws Exception{
+        administration.admCompetence();
+        Thread.sleep(1000);
+    }
+    @Test
+    public void screenPTable() throws Exception{
         administration.admTable();
         administration.admChargenXCompetence();
         administration.admTableChargeXCharge();
+        Thread.sleep(1000);
+    }
+    @Test
+    public void screenPUser() throws Exception{
+//        loginTest.fillField();
+//        Thread.sleep(1000);
+        administration.user();
+        administration.userRegister();
+        administration.userRegisterNewUser();
     }
 
     @Test
-    public void testLoginError()throws Exception{
+    public void ZloginError()throws Exception{
         loginTest.loginErrorNotFoud();
     }
 

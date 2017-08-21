@@ -39,6 +39,7 @@ public class Search {
 
         Verify.verifyExisting(By.cssSelector("div > div:nth-child(4) > div:nth-child(2) > select"));
         Thread.sleep(1000);
+
         Verify.verifyElementClick(By.cssSelector("div > div:nth-child(4) > div:nth-child(2) > select"));
         new Select(webDriver.findElement(By.cssSelector(
                 " div > div:nth-child(4) > div:nth-child(2) > select"))).selectByVisibleText("Andrey 2");
