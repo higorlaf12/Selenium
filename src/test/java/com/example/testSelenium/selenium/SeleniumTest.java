@@ -26,7 +26,7 @@ public class SeleniumTest {
         WebElement element = webDriver.findElement(By.xpath("//input[@name='search_query']"));
         element.sendKeys("musicas eletronicas");
 
-        WebElement button = webDriver.findElement(By.xpath("//button[@id ='register-btn']"));
+        WebElement button = webDriver.findElement(By.xpath("//button[@id ='pageRegister-btn']"));
         button.click();
     }
 

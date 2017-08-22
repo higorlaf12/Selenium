@@ -1,26 +1,25 @@
 package com.example.testSelenium.selenium.Page;
 
-import com.example.testSelenium.selenium.Verify.Verify;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
+import static com.example.testSelenium.selenium.Verify.Verify.verifyElement;
+import static com.example.testSelenium.selenium.Verify.Verify.verifyElementClickable;
 import static org.junit.Assert.assertEquals;
 
-public class LoginTest {
+public class PageLogin {
 
     static WebDriver webDriver;
     static String USER_EMAIL = "higor.freitas@neppoadm.com.br";
     static String USER_LOGIN = "1234567890";
-    static String USER_LOGIN_ERROR="25785485185";
+    static String USER_LOGIN_ERROR = "25785485185";
 
-    public LoginTest(WebDriver driver) {
+    public PageLogin(WebDriver driver) {
         this.webDriver = driver;
     }
 
-    public void fillField () {
+    public void fillField() {
 
         String expectedTitle = "HReports";
 
@@ -36,15 +35,15 @@ public class LoginTest {
 
             WebElement button = webDriver.findElement(By.name("action"));
             button.click();
-        }else
+        } else
             System.out.println("ERROR, Page not found");
     }
 
-    public void loginErrorNotFoud() throws Exception{
+    public void loginErrorNotFoud() throws Exception {
         webDriver.get("http://localhost:8080/#/hreports/login");
-        Verify.verifyElement(By.id("loginEmail"),USER_EMAIL);
-        Verify.verifyElement(By.id("loginPassword"),USER_LOGIN_ERROR);
-        Verify.verifyElementClick(By.name("action"));
+        verifyElement(By.id("loginEmail"), USER_EMAIL);
+        verifyElement(By.id("loginPassword"), USER_LOGIN_ERROR);
+        verifyElementClickable(By.name("action"));
 
         Thread.sleep(1000);
         assertEquals("  Algo deu errado",

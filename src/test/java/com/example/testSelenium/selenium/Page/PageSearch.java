@@ -8,11 +8,11 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class Search {
+public class PageSearch {
     static WebDriver webDriver;
     static String NAME_SEARCH = "HigorLucas";
 
-    public Search(WebDriver webDriver) {
+    public PageSearch(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
@@ -20,30 +20,30 @@ public class Search {
         webDriver.get("http://localhost:8080/#/hreports/surveymanagement");
 
 
-        Verify.verifyElementClick(By.id("search"));
+        Verify.verifyElementClickable(By.id("search"));
         Verify.verifyElement(By.id("search"), NAME_SEARCH);
         Thread.sleep(1000);
 
         Verify.verifyExisting(By.xpath("//div[3]/div[2]/div/div[2]/a[1]"));
-        Verify.verifyElementClick(By.xpath("//div[3]/div[2]/div/div[2]/a[1]"));
+        Verify.verifyElementClickable(By.xpath("//div[3]/div[2]/div/div[2]/a[1]"));
         Thread.sleep(1000);
 
         Verify.verifyExisting(By.cssSelector(" div > div:nth-child(4) > div.offset-l1.offset-m1.col.s12.m3.l3 > select"));
         Thread.sleep(1000);
-        Verify.verifyElementClick(By.cssSelector(" div > div:nth-child(4) > div.offset-l1.offset-m1.col.s12.m3.l3 > select"));
+        Verify.verifyElementClickable(By.cssSelector(" div > div:nth-child(4) > div.offset-l1.offset-m1.col.s12.m3.l3 > select"));
         Select select = new Select(webDriver.findElement(By.cssSelector(
                 "div > div:nth-child(4) > div.offset-l1.offset-m1.col.s12.m3.l3 > select")));
         select.selectByVisibleText("Andrey 1");
-        Verify.verifyElementClick(By.xpath("//div[3]/div[3]/div/div[2]/div[1]/select/option[2]"));
+        Verify.verifyElementClickable(By.xpath("//div[3]/div[3]/div/div[2]/div[1]/select/option[2]"));
         Thread.sleep(1000);
 
         Verify.verifyExisting(By.cssSelector("div > div:nth-child(4) > div:nth-child(2) > select"));
         Thread.sleep(1000);
 
-        Verify.verifyElementClick(By.cssSelector("div > div:nth-child(4) > div:nth-child(2) > select"));
+        Verify.verifyElementClickable(By.cssSelector("div > div:nth-child(4) > div:nth-child(2) > select"));
         new Select(webDriver.findElement(By.cssSelector(
                 " div > div:nth-child(4) > div:nth-child(2) > select"))).selectByVisibleText("Andrey 2");
-        Verify.verifyElementClick(By.xpath("//div[3]/div[3]/div/div[2]/div[2]/select/option[3]"));
+        Verify.verifyElementClickable(By.xpath("//div[3]/div[3]/div/div[2]/div[2]/select/option[3]"));
         Thread.sleep(1000);
 
         new Select(webDriver.findElement(By.xpath("//div[3]/select"))).selectByVisibleText("Aberta");
@@ -54,7 +54,7 @@ public class Search {
 
         Verify.verifyExisting(By.xpath("//div[3]/div[2]/div/div[2]/a[2]"));
         Thread.sleep(1000);
-        Verify.verifyElementClick(By.xpath("//div[3]/div[2]/div/div[2]/a[2]"));
+        Verify.verifyElementClickable(By.xpath("//div[3]/div[2]/div/div[2]/a[2]"));
     }
 
     public void searchTable() throws Exception {

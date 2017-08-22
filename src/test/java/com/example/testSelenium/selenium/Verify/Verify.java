@@ -21,7 +21,7 @@ public class Verify {
         wait.until(ExpectedConditions.presenceOfElementLocated(element));
         webDriver.findElement(element).sendKeys(sendKeys);
     }
-    public static void verifyElementClick(By element){
+    public static void verifyElementClickable(By element){
         WebDriverWait wait = new WebDriverWait(webDriver, 180);
         wait.until(ExpectedConditions.presenceOfElementLocated(element));
 
