@@ -1,7 +1,7 @@
-package com.example.testSelenium.selenium;
+package com.example.testSelenium.selenium.Page;
 
-import com.example.testSelenium.selenium.Page.*;
-import com.example.testSelenium.selenium.Verify.Verify;
+import com.example.testSelenium.selenium.Page.PageClass.*;
+import com.example.testSelenium.selenium.Page.Verify.Verify;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;

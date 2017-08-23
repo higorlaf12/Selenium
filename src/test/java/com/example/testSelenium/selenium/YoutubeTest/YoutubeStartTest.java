@@ -1,4 +1,4 @@
-package com.example.testSelenium.selenium;
+package com.example.testSelenium.selenium.YoutubeTest;
 
 import com.example.testSelenium.selenium.FlashObjectWebDriver.FlashObjectWebDriver;
 import com.example.testSelenium.selenium.YoutubeTest.YoutubeTest;

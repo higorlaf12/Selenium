@@ -1,4 +1,4 @@
-package com.example.testSelenium.selenium.Page;
+package com.example.testSelenium.selenium.Page.PageClass;
 
 
 import org.openqa.selenium.By;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.testSelenium.selenium.Verify.Verify.*;
+import static com.example.testSelenium.selenium.Page.Verify.Verify.*;
 import static org.junit.Assert.assertEquals;
 
 public class PageAdm {

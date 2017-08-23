@@ -1,8 +1,8 @@
-package com.example.testSelenium.selenium.Page;
+package com.example.testSelenium.selenium.Page.PageClass;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import static com.example.testSelenium.selenium.Verify.Verify.*;
+import static com.example.testSelenium.selenium.Page.Verify.Verify.*;
 import static org.junit.Assert.assertEquals;
 
 public class PageAnswer {

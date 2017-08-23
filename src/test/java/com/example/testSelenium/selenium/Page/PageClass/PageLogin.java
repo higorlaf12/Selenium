@@ -1,11 +1,11 @@
-package com.example.testSelenium.selenium.Page;
+package com.example.testSelenium.selenium.Page.PageClass;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static com.example.testSelenium.selenium.Verify.Verify.verifyElement;
-import static com.example.testSelenium.selenium.Verify.Verify.verifyElementClickable;
+import static com.example.testSelenium.selenium.Page.Verify.Verify.verifyElement;
+import static com.example.testSelenium.selenium.Page.Verify.Verify.verifyElementClickable;
 import static org.junit.Assert.assertEquals;
 
 public class PageLogin {

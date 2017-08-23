@@ -1,10 +1,9 @@
-package com.example.testSelenium.selenium.Page;
+package com.example.testSelenium.selenium.Page.PageClass;
 
-import com.example.testSelenium.selenium.Verify.Verify;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
-import static com.example.testSelenium.selenium.Verify.Verify.*;
+import static com.example.testSelenium.selenium.Page.Verify.Verify.*;
 
 public class PageRegister {
     static WebDriver webDriver;

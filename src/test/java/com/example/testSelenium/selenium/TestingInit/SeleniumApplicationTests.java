@@ -1,4 +1,4 @@
-package com.example.testSelenium.selenium;
+package com.example.testSelenium.selenium.TestingInit;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
