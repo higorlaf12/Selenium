@@ -3,9 +3,7 @@ package com.example.testSelenium.selenium.ProjectNewSelenium;
 import com.example.testSelenium.selenium.ProjectNewSelenium.MoveMouse.MoveMouse;
 import com.example.testSelenium.selenium.ProjectNewSelenium.ProjectNew.*;
 import com.example.testSelenium.selenium.ProjectNewSelenium.Verify.Verify;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.FixMethodOrder;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -60,10 +58,24 @@ public class TestNewSelenium {
         driver.manage().window().maximize();
     }
 
+    @Test
+    public void pageLogin() throws Exception{
+        login.loginSuccess();
+        Thread.sleep(1000);
+    }
+    @Test
+    public void pageLoginNotFound() throws Exception{
+        login.loginErrorNotFound();
+        Thread.sleep(1000);
+    }
+    @Test
+    public void pageLoginTurnOff()throws Exception{
+        login.loginTurnOff();
+    }
+
     @AfterClass
     public static void tearDown() throws Exception{
         driver.close();
     }
-
 
 }

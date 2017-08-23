@@ -31,7 +31,3 @@ public class PageMoveMouse {
     }
 }
 
-
-//By.xpath("//nav/div/ul[1]/li[3]/a/i")
-
-//By.xpath("//*[@id='Perfil']/li[2]/a")
