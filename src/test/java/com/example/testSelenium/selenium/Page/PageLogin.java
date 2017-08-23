@@ -49,14 +49,6 @@ public class PageLogin {
         assertEquals("  Algo deu errado",
                 webDriver.findElement(By.xpath("//*[@id='toast-container']/div/div/span")).getText());
 
-//        Verify.verifyExisting();
-//        Alert alert = webDriver.switchTo().alert();
-//        alert.accept();
-
-//        String expectedMessage = "The Institution is deleted Successfully!";
-//        String message = driver.findElement(By.xpath("//div[contains(@class,'callout callout-success')]")).getText();
-//        Assert.assertTrue("Your error message", message.contains(expectedMessage))
-
 
     }
     public boolean loginExit() throws Exception{

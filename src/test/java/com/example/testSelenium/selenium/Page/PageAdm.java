@@ -134,18 +134,21 @@ public class PageAdm {
         nameElement1.add("Pontualidade");
         nameElement1.add("Liderança");
 
-        for (int x = 1; x < receivesElement.size(); x++) {
-            select.selectByVisibleText(nameElement.get(x - 1));
-            verifyElementClickable(By.xpath("//div[5]/div/div[1]/select/option[" + Integer.toString(x) + "]"));
+        for (int varchar = 1; varchar < receivesElement.size(); varchar++) {
+            select.selectByVisibleText(nameElement.get(varchar - 1));
+            verifyElementClickable(By.xpath("//div[5]/div/div[1]/select/option[" + Integer.toString(varchar) + "]"));
 
             verifyExisting(By.cssSelector(" div > div:nth-child(3) > select"));
             verifyElementClickable(By.cssSelector(" div > div:nth-child(3) > select"));
 
-            for (int y = 1; y < webElementList.size(); y++) {
-                select1.selectByVisibleText(nameElement1.get(y - 1));
-                verifyElementClickable(By.xpath("//div[5]/div/div[3]/select/option[" + Integer.toString(y) + "]"));
+            for (int varElement = 1; varElement < webElementList.size(); varElement++) {
+                select1.selectByVisibleText(nameElement1.get(varElement - 1));
+
+                verifyElementClickable(By.xpath("//div[5]/div/div[3]/select/option[" + Integer.toString(varElement) + "]"));
+
                 WebElement elementAtextInput = webDriver.findElement(By.id("atext-input"));
-                elementAtextInput.sendKeys(y == 1 ? "222" : y == 2 ? "333" : "444");
+                elementAtextInput.sendKeys(varElement == 1 ? "222" : varElement == 2 ? "333" : "444");
+
                 verifyElementClickable(By.xpath("//div[5]/div/div[6]/a"));
                 elementAtextInput.clear();
             }
