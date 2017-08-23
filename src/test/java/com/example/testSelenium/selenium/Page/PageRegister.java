@@ -20,10 +20,13 @@ public class PageRegister {
     }
 
     public void register() throws Exception {
-        webDriver.get("http://localhost:8080/#/hreports/profileconfig");
+        PageMoveMouse moveMouse = new PageMoveMouse(webDriver);
 
-        verifyElementClickable(By.cssSelector("#Perfil > li > a"));
-        Thread.sleep(1000);
+        moveMouse.moveMouseMenu(By.xpath("//nav/div/ul[1]/li[3]/a/i"));
+        moveMouse.moverMouseNovo(By.xpath("//*[@id='Perfil']/li[1]/a"));
+
+//        verifyElementClickable(By.cssSelector("#Perfil > li > a"));
+//        Thread.sleep(1000);
 
         verifyElement(By.id("complet-name"), USER_NAME);
         Thread.sleep(1000);

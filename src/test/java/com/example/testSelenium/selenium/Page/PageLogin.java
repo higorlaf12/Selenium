@@ -59,5 +59,13 @@ public class PageLogin {
 
 
     }
+    public boolean loginExit() throws Exception{
+
+        PageMoveMouse moveMouse = new PageMoveMouse(webDriver);
+        moveMouse.moveMouseMenu(By.xpath("//nav/div/ul[1]/li[3]/a/i"));
+        moveMouse.moverMouseNovo(By.xpath("//*[@id='Perfil']/li[2]/a"));
+
+        return true;
+    }
 
 }

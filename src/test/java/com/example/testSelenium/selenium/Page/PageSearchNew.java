@@ -12,7 +12,7 @@ import java.util.List;
 public class PageSearchNew {
 
     static WebDriver webDriver;
-    static String FOR_TEST = "Analizando é testando com o selenium";
+    static String FOR_TEST = "Analizando é testando com o seleniumsss";
 
     public PageSearchNew(WebDriver webDriver) {
         this.webDriver = webDriver;

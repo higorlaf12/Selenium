@@ -17,7 +17,9 @@ public class PageSearch {
     }
 
     public void search() throws Exception {
-        webDriver.get("http://localhost:8080/#/hreports/surveymanagement");
+       PageMoveMouse  moveMouse = new PageMoveMouse(webDriver);
+       moveMouse.moveMouseMenu(By.xpath("//div/nav/div/ul[1]/li[2]/a"));
+       moveMouse.moverMouseNovo(By.xpath("//*[@id='Menu']/li[1]/a"));
 
 
         Verify.verifyElementClickable(By.id("search"));

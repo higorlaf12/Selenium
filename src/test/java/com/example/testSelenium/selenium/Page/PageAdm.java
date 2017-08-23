@@ -29,7 +29,10 @@ public class PageAdm {
 
     public void admCharges() throws Exception {
 
-        webDriver.get("http://localhost:8080/#/hreports/administration");
+        PageMoveMouse  moveMouse = new PageMoveMouse(webDriver);
+        moveMouse.moveMouseMenu(By.xpath("//div/nav/div/ul[1]/li[2]/a"));
+        moveMouse.moverMouseNovo(By.xpath("//*[@id='Menu']/li[4]/a"));
+
         verifyElementClickable(By.xpath("//div/div/div/div[2]/div[1]/a"));
 
         verifyExisting(By.id("text-input"));
@@ -52,7 +55,11 @@ public class PageAdm {
     }
 
     public void admCompetence() throws Exception {
-        webDriver.get("http://localhost:8080/#/hreports/administration");
+
+        PageMoveMouse  moveMouse = new PageMoveMouse(webDriver);
+        moveMouse.moveMouseMenu(By.xpath("//div/nav/div/ul[1]/li[2]/a"));
+        moveMouse.moverMouseNovo(By.xpath("//*[@id='Menu']/li[4]/a"));
+
         verifyElementClickable(By.xpath("//a[@href = '#/hreports/administration/competence']"));
 
         verifyExisting(By.id("text-input"));
@@ -74,7 +81,10 @@ public class PageAdm {
 
     public void admDepartment() throws Exception {
 
-        webDriver.get("http://localhost:8080/#/hreports/administration");
+        PageMoveMouse  moveMouse = new PageMoveMouse(webDriver);
+        moveMouse.moveMouseMenu(By.xpath("//div/nav/div/ul[1]/li[2]/a"));
+        moveMouse.moverMouseNovo(By.xpath("//*[@id='Menu']/li[4]/a"));
+
         verifyElementClickable(By.xpath("//a[@href='#/hreports/administration/department']"));
 
         verifyExisting(By.id("text-input"));
@@ -95,7 +105,10 @@ public class PageAdm {
 
     public void admTable() throws Exception {
 
-        webDriver.get("http://localhost:8080/#/hreports/administration");
+        PageMoveMouse  moveMouse = new PageMoveMouse(webDriver);
+        moveMouse.moveMouseMenu(By.xpath("//div/nav/div/ul[1]/li[2]/a"));
+        moveMouse.moverMouseNovo(By.xpath("//*[@id='Menu']/li[4]/a"));
+
         verifyElementClickable(By.xpath("//a[@href='#/hreports/administration/table']"));
 
     }
@@ -184,7 +197,9 @@ public class PageAdm {
 
     public void admUser() throws Exception {
 
-        webDriver.get("http://localhost:8080/#/hreports/administration");
+        PageMoveMouse  moveMouse = new PageMoveMouse(webDriver);
+        moveMouse.moveMouseMenu(By.xpath("//div/nav/div/ul[1]/li[2]/a"));
+        moveMouse.moverMouseNovo(By.xpath("//*[@id='Menu']/li[4]/a"));
 
         verifyElementClickable(By.xpath("//a[@href='#/hreports/administration/users']"));
 

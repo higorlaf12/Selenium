@@ -18,15 +18,14 @@ import static com.example.testSelenium.selenium.Executaveis.Chrome.executChrome;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class pageTest {
 
-    static WebDriver webDriver;
-    static PageRegister pageRegister;
-    static Verify verify;
-    static PageSearch pageSearch;
-    static PageSearchNew pageSearchNew;
-    static PageAdm pageAdm;
-    static PageMoveMouse pageMoveMouse;
-    static PageAnswer pageAnswer;
-    static PageLogin pageLogin;
+    private static WebDriver webDriver;
+    private static PageRegister pageRegister;
+    private static PageSearch pageSearch;
+    private static PageSearchNew pageSearchNew;
+    private static PageAdm pageAdm;
+    private static PageMoveMouse pageMoveMouse;
+    private static PageAnswer pageAnswer;
+    private static PageLogin pageLogin;
 
     @BeforeClass
     public static void init() throws Exception {
@@ -36,18 +35,18 @@ public class pageTest {
         chromeOptions.addArguments("disable-infobars");
 
         webDriver = new ChromeDriver(chromeOptions);
-        
+
         pageLogin = new PageLogin(webDriver);
         pageRegister = new PageRegister(webDriver);
         pageSearch = new PageSearch(webDriver);
         pageSearchNew = new PageSearchNew(webDriver);
-        verify = new Verify(webDriver);
         pageMoveMouse = new PageMoveMouse(webDriver);
         pageAdm = new PageAdm(webDriver);
         pageAnswer = new PageAnswer(webDriver);
 
-        webDriver.get("http://localhost:8080/#/hreports/login");
+            Verify verify = new Verify(webDriver);
 
+        webDriver.get("http://localhost:8080/#/hreports/login");
         webDriver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         webDriver.manage().window().maximize();
 
@@ -55,8 +54,13 @@ public class pageTest {
 
     @AfterClass
     public static void tearDown() throws Exception {
-        webDriver.close();
 
+        pageLogin.loginExit();
+        if (!pageLogin.loginExit()) {
+            webDriver.close();
+        }else{
+            webDriver.quit();
+        }
     }
 
     @Test
@@ -143,4 +147,5 @@ public class pageTest {
         pageAnswer.answerTable();
 
     }
+
 }
